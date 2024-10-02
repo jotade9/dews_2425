@@ -10,7 +10,7 @@ $valor1 = $_GET['valor1'];
 $valor2 = $_GET['valor2'];
 
 //Creo variable con la operacion
-$operacion = "Multiplica";
+$operacion = "Producto";
 
 //Realizo los cálculos
 $resultado = $valor1 * $valor2;
