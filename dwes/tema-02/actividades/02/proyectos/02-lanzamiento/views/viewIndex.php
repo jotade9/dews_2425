@@ -27,7 +27,7 @@
     <legend>Lanzamiento Proyectiles</legend>
 
     <!-- Fin del formulario -->
-    <form method="GET">
+    <form method="POST">
 
       <!-- Valor 1 -->
       <div class="input-group">
