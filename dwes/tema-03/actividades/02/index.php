@@ -1,19 +1,15 @@
-</body>
-
-</html>
 <!doctype html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Actividad 3.1 - Tabla de Libros</title>
+    <title>Actividad 3.2 - Tabla de Multiplicar</title>
     <!-- css bootstrap 533 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- bootstrap icons 1.11.3 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
 
 </head>
 
@@ -23,45 +19,27 @@
 
         <!-- cabecera documento -->
         <header class="pb-3 mb-4 border-bottom">
-            <i class="bi bi-book"></i>
-            <span class="fs-6">Tabla Libros</span>
+            <i class="bi bi-file-spreadsheet"></i>
+            <span class="fs-6">Tablas de multiplicar</span>
         </header>
-
         <legend>Tablas de multiplicar</legend>
-        <table class="table">
-            <thead>
-                <tr>
-                        <th></th>
-                        <th>1</th>
-                        <th>2</th>
-                        <th>3</th>
-                        <th>4</th>
-                        <th>5</th>
-                        <th>6</th>
-                        <th>7</th>
-                        <th>8</th>
-                        <th>9</th>
-                        <th>10</th>
-                </tr>
-            </thead>
-            <tbody>
+        <table class="table table-primary">
+            <tr>
+                <th></th>
                 <?php for ($i = 1; $i <= 10; $i++): ?>
-                    <tr>
-                        <td><b><?= $i ?></b></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <th><?= $i ?></th>
                 <?php endfor; ?>
-                <tr>
-                    <th colspan="6">Total libros: <?= count($libros) ?></td>
-                </tr>
-            </tbody>
-        </table>
+            </tr>
 
+            <?php for ($i = 1; $i <= 10; $i++): ?>
+                <tr>
+                    <th><?= $i ?></th>
+                    <?php for ($j = 1; $j <= 10; $j++): ?>
+                        <td><?= $i * $j ?></td>
+                    <?php endfor; ?>
+                </tr>
+            <?php endfor; ?>
+        </table>
 
         <!-- pie de página -->
         <footer class="footer mt-auto py-3 fixed-bottom bg-light">
