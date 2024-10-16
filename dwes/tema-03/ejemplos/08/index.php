@@ -5,7 +5,7 @@
  *  - Deficiente, insuficiente, suficiente,..
  */
 $calif = 7;
-switch ($calif) {
+switch (true) {
     case ($calif < 0):
         echo "calificación no permitida";
         break;
