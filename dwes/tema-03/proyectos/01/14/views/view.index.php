@@ -1,19 +1,15 @@
-</body>
-
-</html>
 <!doctype html>
 <html lang="es">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Proyecto 3.1 - Arrays alumno</title>
+    <title>2.1 Calculadora Básica</title>
     <!-- css bootstrap 533 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
     <!-- bootstrap icons 1.11.3 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
 
 </head>
 
@@ -23,14 +19,27 @@
 
         <!-- cabecera documento -->
         <header class="pb-3 mb-4 border-bottom">
-            <i class="bi bi-book"></i>
-            <span class="fs-6">Tabla Libros</span>
+            <i class="bi bi-calculator"></i>
+            <span class="fs-6">Proyecto 2.1 - Calculadora Básica</span>
         </header>
-
-        
+        <table class="table">
+            <thead>
                 <tr>
-                    <th colspan="6">Total libros: <?= count($libros) ?></td>
+                    <th scope="col">Id</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Población</th>
+                    <th scope="col">Curso</th>
                 </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($alumnos as $registro): ?>
+                    <tr class="">
+                        <th><?= $registro['id'] ?></th>
+                        <td><?= $registro['nombre'] ?></td>
+                        <td><?= $registro['poblacion'] ?></td>
+                        <td><?= $registro['curso'] ?></td>
+                    </tr>
+                <?php endforeach ?>
             </tbody>
         </table>
 
