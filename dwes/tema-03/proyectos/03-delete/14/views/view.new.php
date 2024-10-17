@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Tema 3 - Ejercicio 3</title>
+    <title>Proyecto Alumnos Array</title>
     <!-- css bootstrap 533 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
@@ -16,8 +16,14 @@
 <body>
     <!-- capa principal -->
     <div class="container">
+
+        <!-- cabecera documento -->
+        <header class="pb-3 mb-4 border-bottom">
+            <i class="bi bi-calculator"></i>
+            <span class="fs-6">Proyecto Alumnos Array</span>
+        </header>
         <!-- Mostrar la tabla de alumnos  -->
-        <legend>Formulario Añadir Libro</legend>
+        <legend>Formulario Nuevo Alumno</legend>
         <!-- Formulario Nuevo Alumno  -->
         <form action="new.php" method="POST">
 
@@ -25,51 +31,35 @@
             <div class="mb-3 row">
                 <label for="inputid" class="col-sm-2 col-form-label">Id:</label>
                 <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputid" name ="id">
+                    <input type="text" class="form-control" id="inputid" name ="id">
                 </div>
             </div>
-            <!-- titulo -->
+            <!-- nombre -->
             <div class="mb-3 row">
-                <label for="inputtitulo" class="col-sm-2 col-form-label">Titulo:</label>
+                <label for="inputnombre" class="col-sm-2 col-form-label">Nombre:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputtitulo" name="titulo">
+                    <input type="text" class="form-control" id="inputnombre" name="nombre">
                 </div>
             </div>
-            <!-- autor -->
+            <!-- poblacion -->
             <div class="mb-3 row">
-                <label for="inputautor" class="col-sm-2 col-form-label">Autor:</label>
+                <label for="inputpoblacion" class="col-sm-2 col-form-label">Poblacion:</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputautor" name="autor">
+                    <input type="text" class="form-control" id="inputpoblacion" name="poblacion">
                 </div>
             </div>
-            <!-- editorial  -->
+            <!-- curso  -->
             <div class="mb-3 row">
-                <label for="inputeditorial" class="col-sm-2 col-form-label">Editorial:</label>
+                <label for="inputcurso" class="col-sm-2 col-form-label">Curso:</label>
                 <div class="col-sm-10">
-                    <input type="editorial" class="form-control" id="inputeditorial" name="editorial">
+                    <input type="curso" class="form-control" id="inputcurso" name="curso">
                 </div>
             </div>
-            <!-- genero  -->
-            <div class="mb-3 row">
-                <label for="inputgenero" class="col-sm-2 col-form-label">Genero:</label>
-                <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputgenero" name="genero">
-                </div>
-            </div>
-            <!-- precio  -->
-            <div class="mb-3 row">
-                <label for="inputprecio" class="col-sm-2 col-form-label">Precio:</label>
-                <div class="col-sm-10">
-                    <input type="number" class="form-control" id="inputprecio" name="precio">
-                </div>
-            </div>
-            
-
             <!-- Botones de accion  -->
 
             <a class="btn btn-secondary" href="index.php" role="button">Cancelar</a>
-            <button type="reset" class="btn btn-secondary">Reset</button>
-            <button type="submit" formaction="create.php" class="btn btn-primary">Añadir</button>
+            <button type="reset" class="btn btn-danger">Borrar</button>
+            <button type="submit" formaction="create.php" class="btn btn-primary">Enviar</button>
 
         </form>
         <!-- pie de página -->

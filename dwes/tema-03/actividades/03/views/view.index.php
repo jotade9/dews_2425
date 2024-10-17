@@ -70,7 +70,20 @@
                         <td><?= $registro['editorial'] ?></td>
                         <td><?= $registro['genero'] ?></td>
                         <td><?= $registro['precio'] ?></td>
-                        <td><?= $registro['acciones'] ?></td>
+
+                        <!-- Botones de acción  -->
+                        <td>
+                            <a href="delete.php?id=<?= $registro['id']?>" title="Eliminar"
+                            onclick="return confirm('Confirmar eliminación del libro')">
+                            <i class="bi bi-trash-fill"></i>
+
+                            <a href="edit.php?id=<?= $registro['id']?>" title="Editar"
+                            onclick="return confirm('Confirmar edición del libro')">
+                            <i class="bi bi-pencil-fill"></i>
+                        </td>
+
+                            
+
                     </tr>
                 <?php endforeach ?>
             </tbody>

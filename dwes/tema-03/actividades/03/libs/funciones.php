@@ -44,3 +44,8 @@
         ];
         return $tabla;
  }
+ function buscar_tabla($tabla, $columna, $valor){
+    $columna_id = array_column($tabla, $columna);
+    $indice = array_search($valor, $columna_id);
+    return $indice;
+ }
