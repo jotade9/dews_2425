@@ -36,7 +36,7 @@
                         <td><?= $registro['autor'] ?></td>
                         <td><?= $registro['editorial'] ?></td>
                         <td><?= $registro['genero'] ?></td>
-                        <td><?= $registro['precio'] ?></td>
+                        <td><?= number_format($registro['precio'], 2, ',', '.')  ?> €</td>
 
                         <!-- Botones de acción  -->
                         <td>
