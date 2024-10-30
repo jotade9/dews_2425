@@ -1,8 +1,6 @@
 <?php
-
 /**
- * 
- * model.order.php
+ * model.filter.php
  * Descripcion: permite filtrar la tabla a partir de una expresión
  * Todas las filas que contengan dicha expresiñon se mostrarán
  * 

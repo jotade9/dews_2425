@@ -1,7 +1,5 @@
 <?php
-
 /**
- * 
  * model.order.php
  * Descripcion: permite ordenar la tabla por cualquiera de las columnas siempre en orden ascendente
  * 

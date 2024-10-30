@@ -1,7 +1,5 @@
 <?php
-
 /**
- * 
  * model.index.php
  * 
  * crear tabla

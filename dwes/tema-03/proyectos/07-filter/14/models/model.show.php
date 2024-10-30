@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Modelo: model.dleete.php 
+ * Modelo: model.show.php 
  * Descricion: muestra formulario con los detalles no editables de un alumno.
  * 
  * Metodo GET:

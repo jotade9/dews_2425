@@ -1,7 +1,5 @@
 <?php
-
 /**
- * 
  * Modelo: model.update.php
  * 
  * Descripcion: actualiza los detalles de un alumno

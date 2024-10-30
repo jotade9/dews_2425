@@ -1,5 +1,4 @@
 <?php
-
 /**
  * MOdelo: model.delete.php 
  * Descricion: Muestra formulario con los detalles editables de un alumno

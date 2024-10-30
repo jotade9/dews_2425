@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Modelo: model.dleete.php 
+ * Modelo: model.edit.php 
  * Descricion: eLimina un elemento de la lista
  * 
  * Metodo GET:

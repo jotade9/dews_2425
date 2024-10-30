@@ -1,7 +1,5 @@
 <?php
-
 /**
- * 
  * Modelo: model.create.php
  * 
  * Descripcion: añade un nuevo alumno a la tabla
