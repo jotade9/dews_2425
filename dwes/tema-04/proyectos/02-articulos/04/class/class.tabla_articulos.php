@@ -215,5 +215,16 @@ class Class_tabla_articulos
         $this->tabla[$indice] = $articulo;
     }
 
+    /*
+        método: delete()
+        descripción: permite eliminar un artículo en la tabla
 
+        parámetros:
+            $ indice - indice de la tabla en la que se encuentra el articulo
+    */
+
+    public function delete($indice)
+    {
+        unset($this->tabla[$indice]);
+    }
 }

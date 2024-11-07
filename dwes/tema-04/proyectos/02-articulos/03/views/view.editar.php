@@ -13,41 +13,41 @@
         <!-- Encabezado proyecto -->
         <?php include 'views/partials/partial.header.php'; ?>
 
-        <legend>Formulario Nuevo Artículo</legend>
+        <legend>Formulario Editar Artículo</legend>
 
-        <!-- Formulario Nuevo artículo -->
+        <!-- Formulario editar artículo -->
 
-        <form action="create.php" method="POST">
+        <form action="update.php?indice=<?= $indice ?>" method="POST">
 
             <!-- id -->
             <div class="mb-3">
                 <label for="id" class="form-label">Id</label>
-                <input type="text" class="form-control" name="id">
+                <input type="text" class="form-control" name="id" value="<?= $articulo->getId() ?>" readonly>
             </div>
 
             <!-- Descripción -->
             <div class="mb-3">
                 <label for="descripcion" class="form-label">Descripción</label>
-                <input type="text" class="form-control" name="descripcion">
+                <input type="text" class="form-control" name="descripcion" value="<?= $articulo->getDescripcion() ?>">
             </div>
 
             <!-- Modelo -->
             <div class="mb-3">
                 <label for="modelo" class="form-label">Modelo</label>
-                <input type="text" class="form-control" name="modelo">
+                <input type="text" class="form-control" name="modelo" value="<?= $articulo->getModelo() ?>">
             </div>
 
             <!-- Select Dinámico Marcas -->
             <div class="mb-3">
                 <label for="marca" class="form-label">Marca</label>
-                <select class="form-select" name="marca" id="marca" >
+                <select class="form-select" name="marca" id="marca">
                     <option selected disabled>Seleccione una Marca</option>
                     <!-- mostrar lista marcas -->
-                    <?php foreach($marcas as $indice => $data):?>
-                        <option value="<?= $indice ?>">
+                    <?php foreach ($marcas as $indice => $data): ?>
+                        <option value="<?= $indice ?>" <?= ($articulo->getMarca() == $indice) ? 'selected' : null ?>>
                             <?= $data ?>
                         </option>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
                 </select>
 
             </div>
@@ -55,13 +55,13 @@
             <!-- Unidades -->
             <div class="mb-3">
                 <label for="unidades" class="form-label">Unidades</label>
-                <input type="number" class="form-control" name="unidades" step="0.01">
+                <input type="number" class="form-control" name="unidades" step="0.01" value="<?= $articulo->getUnidades() ?>">
             </div>
 
             <!-- Precio -->
             <div class="mb-3">
                 <label for="precio" class="form-label">Precio (€)</label>
-                <input type="number" class="form-control" name="precio" step="0.01">
+                <input type="number" class="form-control" name="precio" step="0.01" value="<?= $articulo->getPrecio() ?>">
             </div>
 
             <!-- lista checbox dinámica categorias -->
@@ -69,15 +69,16 @@
                 <label for="categorias" class="form-label">Seleccione las Categorías</label>
                 <div class="form-control">
                     <!-- muestro el array categorías -->
-                    <?php foreach($categorias as $indice => $data): ?>
+                    <?php foreach ($categorias as $indice => $data): ?>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="categorias[]" value="<?= $indice ?>">
+                            <input class="form-check-input" type="checkbox" name="categorias[]" value="<?= $indice ?>"
+                                <?= (in_array($indice, $articulo->getCategorias()) ? 'checked' : true) ?>>
                             <label class="form-check-label" for="">
                                 <?= $data ?>
                             </label>
                         </div>
-                    <?php endforeach; ?> 
-                    
+                    <?php endforeach; ?>
+
                 </div>
             </div>
 

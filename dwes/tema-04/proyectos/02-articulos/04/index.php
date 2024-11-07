@@ -1,8 +1,8 @@
 <?php
 
     /*
-        controlador: create.php
-        descripción: añade nuevo artículo a la tabla
+        controlador: index.php
+        descripción: muestra los detalles de los artículos
     */
 
     # Clases
@@ -12,7 +12,7 @@
     # Librerias
 
     # Model
-    include 'models/model.create.php';
+    include 'models/model.index.php';
 
     # Vista
     include 'views/view.index.php';
