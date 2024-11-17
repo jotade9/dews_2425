@@ -122,8 +122,15 @@ class Class_tabla_profesores
     public function mostrar_nombre_especialidad($indice_especialidad = []){
         # creo array de nombre de categorías vacío
         $nombre_especialidad = [];
-
+        # Cargo el array de especialidad de los prfesores
         $especialidad_profesor = $this->getEspecialidad();
+
+        foreach ($indice_especialidad as $indice) {
+            $nombre_especialidad[] = $especialidad_profesor[$indice];
+        }
+        # Ordeno
+        asort($nombre_especialidad);
+        return $nombre_especialidad;
 
     }
 }
