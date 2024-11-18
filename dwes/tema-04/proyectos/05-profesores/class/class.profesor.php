@@ -33,4 +33,17 @@
         $this->especialidad = $especialidad;
         $this->asignaturas = $asignaturas;
     }
+    public function getEdad(){
+        # Convertimos la fecha de nacimiento en un objeto DateTime
+        $fechaNac = new DateTime($this->fecha_nacimiento);
+        $fechaActual = new DateTime();
+
+        # Calculo la diferencia entre la fecha actual y la fecha de nacimiento
+        $diferencia = $fechaActual->diff($fechaNac);
+
+        # Devolcmos la diferencia en años
+        return $diferencia->y;
+
+
+    }
  }

@@ -1,7 +1,7 @@
 <?php
 /*
-        modelo:  model.editar.php
-        descripcion: carga los datos del artículo que deseo actualizar
+        modelo:  model.eliminar.php
+        descripcion: carga los datos del libro que deseo eliminar
 
         Método GET
             - indice

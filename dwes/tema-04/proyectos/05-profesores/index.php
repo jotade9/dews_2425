@@ -7,7 +7,7 @@
 
  # Clase
  include 'class/class.profesor.php';
- include 'class/class.tabla_profesor.php';
+ include 'class/class.tabla_profesores.php';
 
  #Librerias
 
