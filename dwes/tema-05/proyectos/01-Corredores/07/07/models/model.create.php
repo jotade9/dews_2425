@@ -17,7 +17,7 @@
     $sexo = $_POST['sexo'];
     $email = $_POST['email'];
     $dni = $_POST['dni'];
-    $id_categoria = $_POST['id_categorias'];
+    $id_categoria = $_POST['id_categoria'];
     $id_club = $_POST['id_club'];
 
     # Validación

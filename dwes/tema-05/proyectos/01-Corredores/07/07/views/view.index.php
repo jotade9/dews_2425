@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <?php include 'views/layouts/layout.head.html'; ?>
-    <title>Panel de Control de corredors - Home </title>
+    <title>Panel de Control de corredores - Home </title>
 </head>
 <body>
     <!-- Capa Principal -->
@@ -25,7 +25,6 @@
                         <th>Ciudad</th>
                         <th>Email</th>
                         <th>Sexo</th>
-                        
                         <th>Categoria</th>
                         <th>Club</th>
                         <th class="text-end">Edad</th>

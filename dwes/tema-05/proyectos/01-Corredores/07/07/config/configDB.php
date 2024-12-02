@@ -10,5 +10,5 @@
 
     define('SERVER', 'localhost');
     define('USER', 'root');
-    define ('PASS', null);
+    define ('PASS', '');
     define('BD', 'maratoon');

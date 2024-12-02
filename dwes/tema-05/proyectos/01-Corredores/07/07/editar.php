@@ -1,21 +1,21 @@
 <?php
     /*
         controlador: editar.php
-        descripción: muestra los detalles de un alumno en modo edición
+        descripción: muestra los detalles de un corredor en modo edición
 
         parámetros:
 
             - Método GET:
-                - id del alumno
+                - id del corredor
     */
 
     # Archivos de configuración
     include 'config/configDB.php';
-
+    
     # Clases
-    include 'class/class.alumno.php';
+    include 'class/class.corredor.php';
     include 'class/class.conexion.php';
-    include 'class/class.tabla_alumnos.php';
+    include 'class/class.tabla_corredores.php';
 
     # Librerias
 

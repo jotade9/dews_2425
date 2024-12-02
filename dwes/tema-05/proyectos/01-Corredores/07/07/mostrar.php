@@ -9,9 +9,13 @@
                 - indice donde se ecuentra el libro dentro de la tabla
     */
 
+    # Archivos de configuración
+    include 'config/configDB.php';
+
     # Clases
-    include 'class/class.libro.php';
-    include 'class/class.tabla_libros.php';
+    include 'class/class.corredor.php';
+    include 'class/class.conexion.php';
+    include 'class/class.tabla_corredores.php';
 
     # Librerias
 
