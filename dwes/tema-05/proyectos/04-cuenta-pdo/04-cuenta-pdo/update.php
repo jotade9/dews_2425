@@ -2,16 +2,16 @@
 
     /*
         controlador: update.php
-        descripción: actualiza los detalles de un cliente
+        descripción: actualiza los detalles de un cuenta
     */
 
     # Archivos de configuración
     include 'config/configDB.php';
 
     # Clases
-    include 'class/class.cliente.php';
+    include 'class/class.cuenta.php';
     include 'class/class.conexion.php';
-    include 'class/class.tabla_clientes.php';
+    include 'class/class.tabla_cuentas.php';
 
     # Librerias
 

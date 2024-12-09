@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <?php include 'views/layouts/layout.head.html'; ?>
-    <title>Panel de Control de Clientes - GESBANK </title>
+    <title>Panel de Control de Cuentas - GESBANK </title>
 </head>
 <body>
     <!-- Capa Principal -->
@@ -21,11 +21,11 @@
                     <!-- Mostramos el encabezado de la tabla -->
                     <tr>
                         <th>Id</th>
+                        <th>Numero Cuenta</th>
                         <th>Cliente</th>
-                        <th>Ciudad</th>
-                        <th>Email</th>
-                        <th>Teléfono</th>
-                        <th>DNI</th>
+                        <th>Fecha Alta</th>
+                        <th>Fecha Ultimo Movimiento</th>
+                        <th>Numero Movimientos</th>
                         <th class='text-end'>Saldo</th>
                         <!-- columna de acciones -->
                         <th>Acciones</th>
@@ -33,29 +33,29 @@
                 </thead>
                 <tbody>
                     <!-- Mostramos cuerpo de la tabla -->
-                    <?php while ($cliente = $stmt_clientes->fetch()): ?>
+                    <?php while ($cuenta = $stmt_cuentas->fetch()): ?>
                         <tr class="align-middle">
                             <!-- Detalles de artículos -->
-                            <td><?= $cliente->id ?></td>
-                            <td><?= $cliente->cliente ?></td>
-                            <td><?= $cliente->ciudad ?></td>
-                            <td><?= $cliente->email ?></td>
-                            <td><?= $cliente->telefono ?></td>
-                            <td><?= $cliente->dni ?></td>
-                            <td class='text-end'><?= number_format($cliente->saldo, 2, ',', '.') ?>€</td>                               
+                            <td><?= $cuenta->id ?></td>
+                            <td><?= $cuenta->num_cuenta ?></td>
+                            <td><?= $cuenta->cliente ?></td>
+                            <td><?= $cuenta->fecha_alta ?></td>
+                            <td><?= $cuenta->fecha_ul_mov ?></td>
+                            <td><?= $cuenta->num_movtos ?></td>
+                            <td class='text-end'><?= number_format($cuenta->saldo, 2, ',', '.') ?>€</td>                               
                             <!-- Columna de acciones -->
                             <td>
                             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <a href="eliminar.php?id=<?= $cliente->id ?>" title="Eliminar" class="btn btn-danger" onclick="return confirm('Confimar elimación del cliente')"><i class="bi bi-trash-fill"></i></a>
-                                <a href="editar.php?id=<?= $cliente->id ?>" title="Editar" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
-                                <a href="mostrar.php?id=<?= $cliente->id ?>" title="Mostrar" class="btn btn-warning"><i class="bi bi-eye-fill"></i></a>
+                                <a href="eliminar.php?id=<?= $cuenta->id ?>" title="Eliminar" class="btn btn-danger" onclick="return confirm('Confimar elimación del cuenta')"><i class="bi bi-trash-fill"></i></a>
+                                <a href="editar.php?id=<?= $cuenta->id ?>" title="Editar" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+                                <a href="mostrar.php?id=<?= $cuenta->id ?>" title="Mostrar" class="btn btn-warning"><i class="bi bi-eye-fill"></i></a>
                             </div>
                             </td>
                         </tr>
                     <?php endwhile; ?>   
                 </tbody>
                 <tfoot>
-                    <tr><td colspan="8">Nº clientes <?= $stmt_clientes->rowCount() ?></td></tr>
+                    <tr><td colspan="8">Nº cuentas <?= $stmt_cuentas->rowCount() ?></td></tr>
                 </tfoot>
             </table>
         </div>
