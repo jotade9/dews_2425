@@ -18,6 +18,7 @@
         <div class="table-responsive"> 
             <table class="table">
                 <thead>
+                    
                     <!-- Mostramos el encabezado de la tabla -->
                     <tr>
                         <th>Id</th>
