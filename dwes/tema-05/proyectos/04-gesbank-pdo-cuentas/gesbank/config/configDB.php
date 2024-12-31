@@ -10,7 +10,7 @@
 
     define('SERVER', 'localhost');
     define('USER', 'root');
-    define ('PASS', null);
+    define ('PASS', '1234');
     define('BD', 'gesbank');
     define('CHARSET', 'utf8mb4');
     define('COLLECTION', 'utf8mb4_unicode_ci');

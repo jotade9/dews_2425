@@ -21,7 +21,7 @@
 
             <!-- Num_cuenta -->
             <div class="mb-3">
-                <label for="nombre" class="form-label">Num_cuenta</label>
+                <label for="nombre" class="form-label">Numero de cuenta</label>
                 <input type="text" class="form-control" name="num_cuenta" value="<?= $cuenta->num_cuenta ?>" disabled>
             </div>
             <!-- Cliente-->
@@ -31,17 +31,17 @@
             </div>
             <!-- Fecha_alta -->
             <div class="mb-3">
-                <label for="apellidos" class="form-label">Fecha_alta</label>
+                <label for="apellidos" class="form-label">Fecha alta</label>
                 <input type="text" class="form-control" name="fecha_alta" value="<?= $cuenta->fecha_alta ?>" disabled>
             </div>
             <!-- Fecha_ul_mov -->
             <div class="mb-3">
-                <label for="ciudad" class="form-label">Fecha_ul_mov</label>
+                <label for="ciudad" class="form-label">Fecha Último Movimiento</label>
                 <input type="text" class="form-control" name="fecha_ul_mov" value="<?= $cuenta->fecha_ul_mov ?>" disabled>
             </div>
             <!-- Num_movtos -->
             <div class="mb-3">
-                <label for="telefono" class="form-label">Num_movtos</label>
+                <label for="telefono" class="form-label">Nº de Movimientos</label>
                 <input type="tel" class="form-control" name="num_movtos" value="<?= $cuenta->num_movtos ?>" disabled>
             </div>
             <!-- Saldo -->

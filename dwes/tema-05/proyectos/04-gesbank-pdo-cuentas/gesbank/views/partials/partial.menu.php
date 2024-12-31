@@ -18,11 +18,11 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="ordenar.php?criterio=1">Id</a></li>
-                        <li><a class="dropdown-item" href="ordenar.php?criterio=2">Num_cuenta</a></li>
+                        <li><a class="dropdown-item" href="ordenar.php?criterio=2">Nº cuenta</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=3">Cliente</a></li>
-                        <li><a class="dropdown-item" href="ordenar.php?criterio=4">Fecha_alta</a></li>
-                        <li><a class="dropdown-item" href="ordenar.php?criterio=5">Fecha_ul_mov</a></li>
-                        <li><a class="dropdown-item" href="ordenar.php?criterio=6">Num_movtos</a></li>
+                        <li><a class="dropdown-item" href="ordenar.php?criterio=4">Fecha alta</a></li>
+                        <li><a class="dropdown-item" href="ordenar.php?criterio=5">Ultimo movimiento</a></li>
+                        <li><a class="dropdown-item" href="ordenar.php?criterio=6">Nº movimientos</a></li>
                         <li><a class="dropdown-item" href="ordenar.php?criterio=7">Saldo</a></li>
                     </ul>
                 </li>

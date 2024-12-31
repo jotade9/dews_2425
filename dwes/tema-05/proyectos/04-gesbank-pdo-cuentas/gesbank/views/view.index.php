@@ -21,11 +21,11 @@
                     <!-- Mostramos el encabezado de la tabla -->
                     <tr>
                         <th>Id</th>
-                        <th>Num_cuenta</th>
+                        <th>Numero de cuenta</th>
                         <th>Cliente</th>
                         <th>Fecha Alta</th>
                         <th>Último Mov</th>
-                        <th class='text-end'>Nº Mvtos</th>
+                        <th class='text-end'>Nº Movimientos</th>
                         <th class='text-end'>Saldo</th>
                         <!-- columna de acciones -->
                         <th>Acciones</th>
