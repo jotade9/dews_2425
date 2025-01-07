@@ -23,62 +23,68 @@
                 <h5 class="card-title"><?= $this->title ?></h5>
             </div>
             <div class="card-body">
-                <!-- Formulario de alumnos  sin edicion-->
+                <!-- Formulario de libros  sin edicion-->
                 <form>
 
                     <!-- id -->
                     <div class="mb-3">
                         <label for="id" class="form-label">Id</label>
-                        <input type="number" class="form-control" value="<?= $this->alumno->id ?>" disabled>
+                        <input type="number" class="form-control" value="<?= $this->libro->id ?>" disabled>
                     </div>
 
-                    <!-- Nombre -->
+                    <!-- titulo -->
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" value="<?= $this->alumno->nombre ?>" disabled>
-                    </div>
-                    <!-- Apellidos -->
-                    <div class="mb-3">
-                        <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" value="<?= $this->alumno->apellidos ?>" disabled>
-                    </div>
-                    <!-- Fecha Nacimiento -->
-                    <div class="mb-3">
-                        <label for="fechaNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" value="<?= $this->alumno->fechaNac ?>" disabled>
-                    </div>
-                    <!-- Dni -->
-                    <div class="mb-3">
-                        <label for="dni" class="form-label">Dni</label>
-                        <input type="text" class="form-control" value="<?= $this->alumno->dni ?>" disabled>
+                        <label for="titulo" class="form-label">Título</label>
+                        <input type="text" class="form-control" value="<?= $this->libro->titulo ?>" disabled>
                     </div>
 
-                    <!-- Email -->
+                    <!-- autor -->
                     <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" value="<?= $this->alumno->email ?>" disabled>
+                        <label for="autor" class="form-label">Autor</label>
+                        <input type="text" class="form-control" value="<?= $this->libro->autor ?>" disabled>
                     </div>
-                    <!-- Telefono -->
+                    
+                    <!-- Editorial -->
                     <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" class="form-control" value="<?= $this->alumno->telefono ?>" disabled>
-                    </div>
-                    <!-- Nacionalidad -->
-                    <div class="mb-3">
-                        <label for="nacionalidad" class="form-label">Nacionalidad</label>
-                        <input type="text" class="form-control" value="<?= $this->alumno->nacionalidad ?>" disabled>
+                        <label for="editorial" class="form-label">Editorial</label>
+                        <input type="text" class="form-control" value="<?= $this->libro->editorial ?>" disabled>
                     </div>
 
-                    <!-- Curso -->
+                    <!-- precio -->
                     <div class="mb-3">
-                        <label for="curso" class="form-label">Curso</label>
-                        <input type="text" class="form-control" value="<?= $this->cursos[$this->alumno->id_curso] ?>" disabled>
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="number" class="form-control" value="<?= $this->libro->precio ?>" disabled>
                     </div>
+
+                    <!-- unidades -->
+                    <div class="mb-3">
+                        <label for="unidades" class="form-label">Unidades</label>
+                        <input type="number" class="form-control" value="<?= $this->libro->stock ?>" disabled>
+                    </div>
+
+                    <!-- fecha_edicion -->
+                    <div class="mb-3">
+                        <label for="fecha_edicion" class="form-label">Fecha de edición</label>
+                        <input type="date" class="form-control" value="<?= $this->libro->fecha_edicion ?>" disabled>
+                    </div>
+
+                    <!-- isbn -->
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">ISBN</label>
+                        <input type="number" class="form-control" value="<?= $this->libro->isbn ?>" disabled>
+                    </div>
+
+                    <!-- generos -->
+                    <div class="mb-3">
+                        <label for="generos" class="form-label">Géneros</label>
+                        <input type="text" class="form-control" value="<?= $this->libro->nombre_generos ?>" disabled>
+                    </div>
+                    
 
             </div>
             <div class="card-footer">
                 <!-- botones de acción -->
-                <a class="btn btn-secondary" href="<?= URL ?>alumno" role="button">Volver</a>
+                <a class="btn btn-secondary" href="<?= URL ?>libro" role="button">Volver</a>
             </div>
             </form>
             <!-- Fin formulario nuevo artículo -->

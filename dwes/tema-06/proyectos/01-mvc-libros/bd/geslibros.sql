@@ -90,7 +90,7 @@ INSERT INTO Provincias (id, provincia) VALUES
  DROP TABLE IF EXISTS editoriales;
 CREATE TABLE IF NOT EXISTS editoriales (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(30),
+    nombre VARCHAR(60),
     direccion VARCHAR(50),
     poblacion VARCHAR(25),
     provincia_id INT,
@@ -124,7 +124,7 @@ INSERT INTO Editoriales (id, nombre, direccion, poblacion, provincia_id, c_posta
 DROP TABLE IF EXISTS autores;
 CREATE TABLE autores (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(40),
+    nombre VARCHAR(80),
     nacionalidad VARCHAR(20),
     email VARCHAR(45) UNIQUE,
     fecha_nac DATETIME,
@@ -165,8 +165,6 @@ CREATE TABLE Clientes (
         REFERENCES Provincias (id)
         ON DELETE CASCADE ON UPDATE CASCADE
 );
-
-
 --
 -- Dumping data for table `clientes`
 --
@@ -226,6 +224,3 @@ INSERT INTO Libros (id, titulo, precio, stock, fecha_edicion, isbn, autor_id, ed
 (9, 'El Aleph', 21.00, 9, '1949-01-01', '9788467032357', 3, 3, '7,9'),
 (10, 'Por Quién Doblan las Campanas', 22.99, 4, '1940-01-01', '9780684803357', 4, 4, '9,3'),
 (11, 'Confieso que He Vivido', 24.50, 7, '1974-01-01', '9788432239467', 5, 5, '8,9');
-
-
-

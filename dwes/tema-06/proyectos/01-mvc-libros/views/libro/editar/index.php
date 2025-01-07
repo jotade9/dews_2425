@@ -23,69 +23,92 @@
                 <h5 class="card-title"><?= $this->title ?></h5>
             </div>
             <div class="card-body">
-                <!-- Formulario de alumnos  -->
-                <!-- Enviar al controlador update con el id del alumno -->
-                <form action="<?= URL ?>alumno/update/<?= $this->id ?>" method="POST">
+                <!-- Formulario de libros  -->
+                <!-- Enviar al controlador update con el id del libro -->
+                <form action="<?= URL ?>libro/update/<?= $this->id ?>" method="POST">
 
                     <!-- id oculto -->
                     <!-- Tengo que pasar el id oculto para que el controlador pueda validar doblemente el id -->
-                    <input type="number" class="form-control" name="id" value="<?= $this->alumno->id ?>" hidden>
+                    <input type="number" class="form-control" name="id" value="<?= $this->libro->id ?>" hidden>
 
-                    <!-- Nombre -->
+                    <!-- titulo -->
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" class="form-control" name="nombre" value="<?= $this->alumno->nombre ?>">
+                        <label for="titulo" class="form-label">Titulo</label>
+                        <input type="text" class="form-control" name="titulo" value="<?= $this->libro->titulo ?>">
                     </div>
-                    <!-- Apellidos -->
+                    <!-- Select Dinámico Autores -->
                     <div class="mb-3">
-                        <label for="apellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" name="apellidos" value="<?= $this->alumno->apellidos ?>">
-                    </div>
-                    <!-- Fecha Nacimiento -->
-                    <div class="mb-3">
-                        <label for="fechaNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" name="fechaNac" value="<?= $this->alumno->fechaNac ?>">
-                    </div>
-                    <!-- Dni -->
-                    <div class="mb-3">
-                        <label for="dni" class="form-label">Dni</label>
-                        <input type="text" class="form-control" name="dni" value="<?= $this->alumno->dni ?>">
-                    </div>
-
-                    <!-- Email -->
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" class="form-control" name="email" value="<?= $this->alumno->email ?>">
-                    </div>
-                    <!-- Telefono -->
-                    <div class="mb-3">
-                        <label for="telefono" class="form-label">Teléfono</label>
-                        <input type="tel" class="form-control" name="telefono" value="<?= $this->alumno->telefono ?>">
-                    </div>
-                    <!-- Nacionalidad -->
-                    <div class="mb-3">
-                        <label for="nacionalidad" class="form-label">Nacionalidad</label>
-                        <input type="text" class="form-control" name="nacionalidad" value="<?= $this->alumno->nacionalidad ?>">
-                    </div>
-
-                    <!-- Select Dinámico Cursos -->
-                    <div class="mb-3">
-                        <label for="curso" class="form-label">Curso</label>
-                        <select class="form-select" name="id_curso">
-                            <option selected disabled>Seleccione curso</option>
-                            <!-- mostrar lista cucrsos -->
-                            <?php foreach ($this->cursos as $indice => $data): ?>
+                        <label for="autor" class="form-label">Autor</label>
+                        <select class="form-select" name="autor">
+                            <option selected disabled>Seleccione Autor</option>
+                            <!-- mostrar lista Autor -->
+                            <?php foreach ($this->autores as $indice => $data): ?>
                                 <option value="<?= $indice ?>" 
-                                    <?php if ($indice == $this->alumno->id_curso) echo 'selected' ?>>
+                                    <?= ($indice == $this->libro->autor_id) ? 'selected' : '' ?>>
                                     <?= $data ?>
                                 </option>
                             <?php endforeach; ?>
                         </select>
                     </div>
+                    <!-- Select Dinámico Editorial -->
+                    <div class="mb-3">
+                        <label for="editorial" class="form-label">Editorial</label>
+                        <select class="form-select" name="editorial">
+                            <option selected disabled>Seleccione Editorial</option>
+                            <!-- mostrar lista Editorial -->
+                            <?php foreach ($this->editoriales as $indice => $data): ?>
+                                <option value="<?= $indice ?>" 
+                                    <?= ($indice == $this->libro->editorial_id) ? 'selected' : '' ?>>
+                                    <?= $data ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <!-- Precio -->
+                    <div class="mb-3">
+                        <label for="precio" class="form-label">Precio</label>
+                        <input type="text" class="form-control" name="precio" value="<?= $this->libro->precio ?>">
+                    </div>
+                    <!-- unidades -->
+                    <div class="mb-3">
+                        <label for="unidades" class="form-label">Unidades</label>
+                        <input type="text" class="form-control" name="unidades" value="<?= $this->libro->stock ?>">
+                    </div>
+
+                    <!-- fecha_edicion -->
+                    <div class="mb-3">
+                        <label for="fecha_edicion" class="form-label">Fecha Edición</label>
+                        <input type="date" class="form-control" name="fecha_edicion" value="<?= $this->libro->fecha_edicion ?>">
+                    </div>
+                    <!-- isbn -->
+                    <div class="mb-3">
+                        <label for="isbn" class="form-label">Isbn</label>
+                        <input type="tel" class="form-control" name="isbn" value="<?= $this->libro->isbn ?>">
+                    </div>
+                    
+                    <!-- lista checbox dinámica géneros -->
+
+                    <div class="mb-3">
+                        <label for="generos" class="form-label">Seleccione Géneros</label>
+                        <div class="form-control">
+                            <!-- muestro el array generos -->
+                            <?php foreach ($this->generos as $indice => $data): ?>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="generos[]" value="<?= $indice ?>"
+                                    <?= (in_array($indice, $this->libro->generos)) ? 'checked' : '' ?>>
+                                    <label class="form-check-label" for="">
+                                        <?= $data ?>
+                                    </label>
+                                </div>
+                            <?php endforeach; ?>
+
+                        </div>
+                    </div>
+                    
             </div>
             <div class="card-footer">
                 <!-- botones de acción -->
-                <a class="btn btn-secondary" href="<?= URL ?>alumno" role="button">Cancelar</a>
+                <a class="btn btn-secondary" href="<?= URL ?>libro" role="button">Cancelar</a>
                 <button type="reset" class="btn btn-danger">Borrar</button>
                 <button type="submit" class="btn btn-primary">Actualizar</button>
             </div>
