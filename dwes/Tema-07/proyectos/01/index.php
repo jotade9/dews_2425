@@ -1,0 +1,37 @@
+<?php
+session_start();
+
+// Inicialización de la sesión
+if (!isset($_SESSION['sid'])) {
+    $_SESSION['sid'] = session_id();
+    $_SESSION['name'] = "UserSession";
+    $_SESSION['start_time'] = date("Y-m-d H:i:s");
+    $_SESSION['visits'] = 0;
+    $_SESSION['page_visits'] = [
+        'home' => 0,
+        'about' => 0,
+        'services' => 0,
+        'events' => 0,
+    ];
+}
+
+// Actualiza visitas a la página
+$_SESSION['page_visits']['home']++;
+$_SESSION['visits']++;
+
+// Muestra la información
+echo "<h1>Home</h1>";
+echo "<p>SID de la sesión: " . $_SESSION['sid'] . "</p>";
+echo "<p>Nombre de la sesión: " . $_SESSION['name'] . "</p>";
+echo "<p>Fecha y hora de inicio de la sesión: " . $_SESSION['start_time'] . "</p>";
+echo "<p>Visitas a esta página durante la sesión: " . $_SESSION['page_visits']['home'] . "</p>";
+
+// Menú de navegación
+echo '<nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="services.php">Services</a>
+        <a href="events.php">Events</a>
+        <a href="close.php">Close</a>
+      </nav>';
+?>
