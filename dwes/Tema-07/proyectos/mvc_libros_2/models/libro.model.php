@@ -601,4 +601,167 @@ public function update(classLibro $libro, $id)
 
         }
     }
+    /*
+        método: validateforeignkeyAutor
+
+        descripción: valida el Autor de un libro. Que no exista en la base de datos
+
+        @param: 
+            - autor del libro
+
+    */
+    public function validateForeignKeyAutor($autor)
+    {
+        try {
+            $sql = "SELECT 
+                        id
+                    FROM 
+                        autores
+                    WHERE
+                        id = :autor
+                    LIMIT 1
+            ";
+
+            $conexion = $this->db->connect();
+
+            $stmt = $conexion->prepare($sql);
+
+            $stmt->bindParam(':autor', $autor, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            // error base de datos
+            require_once 'template/partials/errorDB.partial.php';
+            $stmt = null;
+            $conexion = null;
+            $this->db = null;
+            exit();
+        }
+    }
+
+    /*
+        método: validateforeignkeyEditorial
+
+        descripción: valida el Editorial de un libro. Que no exista en la base de datos
+
+        @param: 
+            - editorial del libro
+
+    */
+    public function validateForeignKeyEditorial($editorial)
+    {
+        try {
+            $sql = "SELECT 
+                        id
+                    FROM 
+                        editoriales
+                    WHERE
+                        id = :editorial
+                    LIMIT 1
+            ";
+
+            $conexion = $this->db->connect();
+
+            $stmt = $conexion->prepare($sql);
+
+            $stmt->bindParam(':editorial', $editorial, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            // error base de datos
+            require_once 'template/partials/errorDB.partial.php';
+            $stmt = null;
+            $conexion = null;
+            $this->db = null;
+            exit();
+        }
+    }
+    /*
+        método: validateUniqueIsbn
+
+        descripción: valida el isbn de un libro. Que no exista en la base de datos
+
+        @param: 
+            - isbn del libro
+
+    */
+    public function validateUniqueIsbn($isbn)
+    {
+        try {
+
+            $sql = "
+                SELECT 
+                    id
+                FROM 
+                    libros
+                WHERE
+                    isbn = :isbn
+            ";
+
+            $conexion = $this->db->connect();
+            $stmt = $conexion->prepare($sql);
+            $stmt->bindParam(':isbn', $isbn, PDO::PARAM_STR, 13);
+            $stmt->setFetchMode(PDO::FETCH_OBJ);
+            $stmt->execute();
+
+            if ($stmt->rowCount() == 0) {
+                return TRUE;
+            } 
+
+            return FALSE;
+
+
+        } catch (PDOException $e) {
+
+            // error base de datos
+            require_once 'template/partials/errorDB.partial.php';
+            $stmt = null;
+            $conexion = null;
+            $this->db = null;
+            exit();
+        }
+    }
+    /*
+        método: validateforeignkeyGenero
+
+        descripción: valida el genero de un libro. Que no exista en la base de datos 
+
+        @param: 
+            - genero del libro
+
+    */
+    public function validateForeignKeyGenero($generos)
+    {
+        try {
+            $sql = "SELECT 
+                        id
+                    FROM 
+                        generos
+                    WHERE
+                        id = :genero
+                    LIMIT 1
+            ";
+
+            $conexion = $this->db->connect();
+
+            $stmt = $conexion->prepare($sql);
+
+            $stmt->bindParam(':genero', $generos, PDO::PARAM_INT);
+
+            $stmt->execute();
+
+            return $stmt->fetch();
+        } catch (PDOException $e) {
+            // error base de datos
+            require_once 'template/partials/errorDB.partial.php';
+            $stmt = null;
+            $conexion = null;
+            $this->db = null;
+            exit();
+        }
+    }
 }

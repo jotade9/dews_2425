@@ -25,7 +25,7 @@ class Libro extends Controller
         if (isset($_SESSION['mensaje'])) {
 
             // Creo la propiedad success de la vista
-            $this->view->success = $_SESSION['mensaje'];
+            $this->view->mensaje = $_SESSION['mensaje'];
 
             // Elimino la variable de sesión
             unset($_SESSION['mensaje']);
@@ -120,7 +120,7 @@ class Libro extends Controller
         $unidades = filter_var($_POST['unidades'] ??= '', FILTER_SANITIZE_NUMBER_INT);
         $fecha_edicion = filter_var($_POST['fecha_edicion'] ??= '', FILTER_SANITIZE_SPECIAL_CHARS);
         $isbn = filter_var($_POST['isbn'] ??= '', FILTER_SANITIZE_NUMBER_INT);
-        $generos = filter_var($_POST['generos'] ??= '', FILTER_SANITIZE_SPECIAL_CHARS);
+        $generos = $_POST['generos'];
 
         // Creamos un objeto de la clase libro
         $libro = new classLibro(
@@ -143,11 +143,23 @@ class Libro extends Controller
         }
         // validar autor
         // Reglas: Clave ajena, Obligatorio, Numérico, id de autor existe en la tabla autores.
-        
+        if (empty($autor)) {
+            $error['autor'] = 'El autor es obligatorio';
+        } else if (!filter_var($autor, FILTER_VALIDATE_INT)) {
+            $error['autor'] = 'El formato del autor no es correcto';
+        } else if (!$this->model->validateForeignKeyAutor($autor)) {
+            $error['autor'] = 'El autor no existe';
+        }
 
         // validar editorial
         // Reglas: Clave Ajena, Obligatorio, Numérico, id de autor existe en la tabla editorial.
-        
+        if (empty($editorial)) {
+            $error['editorial'] = 'La editorial es obligatorio';
+        } else if (!filter_var($editorial, FILTER_VALIDATE_INT)) {
+            $error['editorial'] = 'El formato de la editorial no es correcto';
+        } else if (!$this->model->validateForeignKeyEditorial($editorial)) {
+            $error['editorial'] = 'La editorial no existe';
+        }
 
         // validar precio
         // Reglas: obligatorio, numérico
@@ -171,18 +183,65 @@ class Libro extends Controller
         }
 
         // validar ISBN
-        // Reglas: Obligatorio, formato isbn (13 dígitos numéricos), Valor único
-        
+        // Reglas: Obligatorio, formato isbn (13 dígitos numéricos), Valor unico
+
+        $options = [
+            'options' => [
+                'regexp' => '/^\d{13}$/'
+            ]
+        ];
+
+        if (empty($isbn)) {
+            $error['isbn'] = 'El ISBN es obligatorio';
+
+        } elseif (!filter_var($isbn, FILTER_VALIDATE_REGEXP, $options)) {
+            $error['isbn'] = 'El ISBN debe tener exactamente 13 dígitos';
+
+        } elseif (!$this->model->validateUniqueIsbn($isbn)) {
+            $error['isbn'] = 'El ISBN ya existe';
+
+        }
 
         // validar generos
         // Reglas:  Obligatorio (tengo que elegir al menos 1), valores numéricos, valores existentes en la tabla géneros.
+        if (empty($generos)) {
+            $error['generos'] = 'El género es obligatorio';
+        } else if (!is_array($generos)) {
+            $error['generos'] = 'El género no tiene el formato correcto';
+        } else if(count($generos) < 1) {
+            $error['generos'] = 'Debes elegir al menos un género';
+        } else {
+            foreach ($generos as $genero) {
+                if (!filter_var($genero, FILTER_VALIDATE_INT)) {
+                    $error['generos'] = 'El género no tiene el formato correcto';
+                } else if (!$this->model->validateForeignKeyGenero($genero)) {
+                    $error['generos'] = 'El género no existe';
+                }
+            }
+        }
+        // si hay errores
+        if (!empty($error)) {
+            // Creo la variable de sesión error
+            $_SESSION['error'] = $error;
+
+            // Creo la variable de sesión libro
+            $_SESSION['libro'] = $libro;
+
+            // Redirecciono al formulario de nuevo
+            header('location:' . URL . 'libro/nuevo');
+            exit();
+        }
         
 
         // Añadimos libro a la tabla
         $this->model->create($libro);
 
+        /// Genero mensaje de exito
+        $_SESSION['mensaje'] = "Libro añadido con éxito";
+
         // redireciona al main de libro
         header('location:' . URL . 'libro');
+        exit();
     }
 
     /*

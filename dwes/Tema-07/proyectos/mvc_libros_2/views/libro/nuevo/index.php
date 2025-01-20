@@ -87,7 +87,7 @@
                     </div>
                     <!-- precio -->
                     <div class="mb-3">
-                        <label for="precio" class="form-label">precio</label>
+                        <label for="precio" class="form-label">Precio</label>
                         <input type="number" class="form-control
                             <?= (isset($this->error['precio']))? 'is-invalid': null ?>" 
                             id="precio" name="precio"
