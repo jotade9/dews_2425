@@ -3,7 +3,7 @@
 
 # Ruta absoluta
 
-define('URL', 'http://localhost:8080/dews_2425/dwes/Tema-07/proyectos/01-validacion_alumno_eliminar/');
+define('URL', 'http://localhost:8080/dews_2425/dwes/Tema-07/proyectos/01-Alumno/04-validacion_alumno_eliminar/');
 
 # Constante de la Base de Datos
 define('HOST', 'localhost');
