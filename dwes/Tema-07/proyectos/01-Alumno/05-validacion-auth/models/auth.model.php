@@ -271,7 +271,7 @@ class authModel extends Model
      *     - id del usuario
      */
 
-    public function getIdPerfilUser($id)
+    public function getIdPerfilUser(int $id)
     {
         try {
 
@@ -299,7 +299,7 @@ class authModel extends Model
             $stmt->execute();
 
             // devuelvo el resultado
-            return $stmt->fetch();
+            return $stmt->fetch()->role_id;
 
         } catch (PDOException $e) {
 
@@ -320,7 +320,7 @@ class authModel extends Model
      *    - id del perfil
      */
 
-    public function getNamePerfil($role_id)
+    public function getNamePerfil(int $role_id)
     {
         try {
 
