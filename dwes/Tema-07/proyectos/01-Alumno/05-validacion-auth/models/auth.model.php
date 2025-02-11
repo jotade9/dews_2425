@@ -320,7 +320,7 @@ class authModel extends Model
      *    - id del perfil
      */
 
-    public function getNamePerfil(int $role_id)
+    public function getNamePerfil( $role_id)
     {
         try {
 
