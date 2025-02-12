@@ -30,10 +30,10 @@
 
     */ 
     $GLOBALS['album']['main'] = [1, 2, 3];
-    $GLOBALS['album']['nuevo'] = [1, 2];
-    $GLOBALS['album']['editar'] = [1, 2];
-    $GLOBALS['album']['eliminar'] = [1];
+    $GLOBALS['album']['nuevo'] = [1, 2, 3];
+    $GLOBALS['album']['editar'] = [1, 2, 3];
+    $GLOBALS['album']['eliminar'] = [1, 3];
     $GLOBALS['album']['mostrar'] = [1, 2, 3];
     $GLOBALS['album']['filtrar'] = [1, 2, 3];
     $GLOBALS['album']['ordenar'] = [1, 2, 3];
-    $GLOBALS['album']['agregar'] = [1, 2];
+    $GLOBALS['album']['agregar'] = [1, 2, 3];

@@ -1,38 +1,19 @@
 <?php
 
-    /*
-        Manejo de directorios mediante la función:
-        - scandir()
+echo 'Directorio actual: '. getcwd() . '<br>';
 
-        - chdir: Cambia el directorio actual
-        - chroot: Cambia el directorio raíz
-        - closedir: Cierra un directorio abierto
-        - dir: Abre un directorio
-        - getcwd: Devuelve el directorio actual
-        - opendir: Abre un directorio
-        - readdir: Lee un directorio
-        - rewinddir: Reinicia el puntero de un directorio
-        - scandir: Devuelve un array con los elementos de un directorio
-    */
+$files=scandir('files',1);
 
-    // Muestro el directorio actual
-    echo 'Directorio actual: ' . getcwd() . '<br>';
+//Muestra el contenifo del directorio files
+echo '<pre>';
+print_r($files);
+echo '</pre>';
 
-    // Ver contenido del directorio files con scandir
-    $files = scandir('files', 0);
-
-    // Muestro el contenido del directorio files
-    echo '<pre>';
-    print_r($files);
-    echo '</pre>';
-
-    // Recorro el array de ficheros y directorios
-    echo 'Contenido del directorio files:<br>';
-    foreach ($files as $file) {
-        if (is_dir('files/' . $file)) {
-            echo 'Directorio: ' . $file . '<br>';
-        } else {
-            echo 'Fichero: ' . $file . ' - ' . filesize('files/' . $file) . ' bytes<br>';
-        }
+//Muestra el contenido de los archivos
+foreach ($files as $file) {
+    if (is_file('files/'.$file)) {
+        echo '<h2> Archivo: '.$file.'</h2>';
+    }else{
+        echo '<h2> Directorio: '.$file.'</h2>';
     }
-    
+}

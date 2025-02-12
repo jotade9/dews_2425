@@ -1,26 +1,19 @@
 <?php
 
-    /*
-        Leer archivo
+/**
+ * leer archivo
+ * 
+ * fread — Lee un número de bytes determinado desde un archivo
+ */
 
-        - fread(): Lee un archivo
-    */
+$archivo = fopen('archivo.txt', 'r');
 
-    // Abrir archivo
-    $archivo = fopen("archivo.txt", "r");
+if (!$archivo) {
+    echo 'No se pudo abrir el archivo';
+    exit;
+}
+$contenido = fread($archivo, filesize('archivo.txt'));
 
-    // Valido apertura del archivo
-    if (!$archivo) {
-        // Mensaje de error
-        echo "No se pudo abrir el archivo";
-        exit();
-    }
+echo nl2br($contenido);
 
-    // Leer archivo completo
-    $contenido = fread($archivo, 20);
-
-    // Mostrar contenido con saltos de línea
-    echo nl2br($contenido); // nl2br() convierte saltos de línea en <br>
-
-    // Cerrar archivo
-    fclose($archivo);
+fclose($archivo);

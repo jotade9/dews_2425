@@ -63,7 +63,7 @@ class App
         } else {
 
             require_once 'controllers/error.php';
-            $controller = new Errores();
+            $controller = new Errores("Página no encontrada");
         }
     }
 }

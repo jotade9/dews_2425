@@ -1,18 +1,13 @@
 <?php
+/**
+ * leer archivo como array
+ * 
+ * file — Lee todo un archivo a un array
+ */
+$archivo = file('archivo.txt');
 
-    /*
-        Leer archivo como array
+echo"<pre>";
+print_r($archivo);
+echo"</pre>";
 
-        - file(): Lee un archivo y lo convierte en un array
-    */
-
-    // Abrir archivo en modo lectura
-    $archivo = file("archivo.txt");
-
-    // Muestro el array
-    echo "<pre>";
-    print_r($archivo);
-    echo "</pre>";
-
-    // Muestro sólo la ultima línea
-    echo 'Ultima línea: ' . $archivo[count($archivo) - 1];
+echo 'Ultima linea: '. $archivo[count($archivo)-1];

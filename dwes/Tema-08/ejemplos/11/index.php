@@ -1,38 +1,31 @@
 <?php
+/**
+ * hacer saber si archivo.txt es fichero o directorio
+ */
+$ruta='files';
+$archivo='archivo.txt';
 
-    /*
-        Operaciones básicas de archivos y directorios:
+$ruta=$ruta.'/'.$archivo;
+if (is_file($ruta)) {
+    echo "Es un fichero";
+} elseif (is_dir($ruta)) {
+    echo "Es un directorio";
+} else {
+    echo "No es ni fichero ni directorio";
+}
 
-        - chdir: Cambia el directorio actual
-        - chroot: Cambia el directorio raíz
-        - closedir: Cierra un directorio abierto
-        - dir: Abre un directorio
-        - getcwd: Devuelve el directorio actual
-        - opendir: Abre un directorio
-        - readdir: Lee un directorio
-        - rewinddir: Reinicia el puntero de un directorio
-        - scandir: Devuelve un array con los elementos de un directorio
-    */
+echo "Directorio actual: ".getcwd();
 
-    // Directorio actual
-    echo 'Directorio actual:' . getcwd() . '<br>';
+$dir=opendir('files');
 
-    // Abrir directorio 'files'
-    $dir = opendir('files');
+echo 'Archivos en el directorio:<br>';
 
-    // Leer directorio 'files'
-    echo 'Contenido del directorio: ' . $dir . '<br>';
-    while ($file = readdir($dir)) {
-        if (is_file('files/' . $file)) { // Podemos hacer lo mismo con un if corto 
-            echo '<br> Fichero: '. $file . ' - ';
-            // Muestro el tamaño del fichero
-            echo filesize('files/' . $file) . ' bytes<br>';
-        } else {
-            echo '<br> Directorio: '. $file . '<br>';
-        }
+//leer $directorio
+while ($archivo=readdir($dir)) {
+    if (is_file('files/'.$archivo)) {
+        echo 'Archivo: '. $archivo.' - '.filesize('files/'.$archivo).' bytes<br>';
+    }else{
+        echo 'Directorio: '. $archivo.'<br>';
     }
-    
-    // Podemos hacer lo mismo con un if corto
-    
-    // Cerrar directorio 'files'
-    closedir($dir);
+}
+closedir($dir);

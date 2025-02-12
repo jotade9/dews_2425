@@ -1,21 +1,11 @@
 <?php
 
-    /*
-        Ver los metadatos de un archivo
+$ruta='files';
+$archivo='archivo.txt';
 
-        - stat(): Devuelve información sobre un archivo
-    */
+$ruta=$ruta.'/'.$archivo;
+$metadatos=stat($ruta);
 
-    // Acceso a la ruta del archivo
-    $ruta = 'files';
-    $archivo = 'archivo.txt';
-
-    $ruta = $ruta . '/' . $archivo; // Por si me dan la ruta y el archivo por separado
-
-    // Obtener los metadatos del archivo
-    $metadatos = stat($ruta); // Los devuelve en forma de array
-
-    // Mostrar los metadatos
-    echo '<pre>';
-    print_r($metadatos);
-    echo '</pre>';
+echo"<pre>";
+print_r($metadatos);
+echo"</pre>";

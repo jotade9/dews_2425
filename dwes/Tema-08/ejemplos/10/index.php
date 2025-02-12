@@ -1,48 +1,29 @@
 <?php
+/**
+ * Operaciones basicas de archivos y directorios
+ * chdir= Cambiar de directorio
+ * getcwd= Obtener el directorio actual
+ * mkdir= Crear un directorio
+ * rmdir= Borrar un directorio
+ * opendir= Abrir un directorio
+ * readdir= Leer un directorio
+ * closedir= Cerrar un directorio
+ * rewinddir= Reiniciar un directorio
+ * readdir= Leer un directorio
+ * chrort= Cambiar los permisos de un archivo
+ */
+echo 'Directorio actual: '.getcwd().'<br>';
 
-    /*
-        Operaciones básicas de archivos y directorios:
+// Cambiar de directorio
+chdir('files');
+echo 'Directorio actual: '.getcwd().'<br>';
 
-        - chdir: Cambia el directorio actual
-        - chroot: Cambia el directorio raíz
-        - closedir: Cierra un directorio abierto
-        - dir: Abre un directorio
-        - getcwd: Devuelve el directorio actual
-        - opendir: Abre un directorio
-        - readdir: Lee un directorio
-        - rewinddir: Reinicia el puntero de un directorio
-        - scandir: Devuelve un array con los elementos de un directorio
-    */
+// Cambiar un directorio padre
+chdir('..');
+echo 'Directorio actual: '.getcwd().'<br>';
 
-    // Directorio actual
-    echo 'Directorio actual:' . getcwd() . '<br>';
-
-    // Cambiar de directorio actual a 'files'
-    chdir('files');
-    echo 'Directorio actual:' . getcwd() . '<br>'; // Comprobar que se ha cambiado de directorio a 'files'
-
-    // Cambiar al directorio padre
-    chdir('..');
-    echo 'Directorio actual:' . getcwd() . '<br>'; // Comprobar que se ha cambiado de directorio de nuevo al directorio raíz
-
-    // Cambiar directorio actual a 'files/pdf'
-    chdir('files/pdf');
-    echo 'Directorio actual:' . getcwd() . '<br>'; // Comprobar que se ha cambiado de directorio a 'files/pdf'
-
-    // Mostrar el contenido de un directorio
-    $dir = opendir('.');
-    echo 'Contenido del directorio:<br>';
-    while ($file = readdir($dir)) {
-        echo $file . '<br>';
-    }
-
-    // Cambiar directorio actual a 'files'
-    chdir('..');
-    echo 'Directorio actual:' . getcwd() . '<br>'; // Comprobar que se ha cambiado de directorio a 'files'
-
-    // Mostramos el contenido de ese directorio
-    $dir = opendir('.');
-    echo 'Contenido del directorio:<br>';
-    while ($file = readdir($dir)) {
-        echo $file . '<br>';
-    }
+//mostrar contenido de un directorio
+$directorio=dir('.');
+while($archivo=$directorio->read()){
+    echo $archivo.'<br>';
+}

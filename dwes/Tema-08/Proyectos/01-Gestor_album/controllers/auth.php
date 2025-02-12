@@ -181,7 +181,7 @@ class Auth extends Controller
         $_SESSION['mensaje'] = "Usuario ". $user->name. " ha iniciado sesión con perfil ". $_SESSION['role_name'];
 
         // redirección al panel de control
-        header("location:". URL. "alumno");
+        header("location:". URL. "album");
 
 
     }
@@ -226,7 +226,7 @@ class Auth extends Controller
             // Elimino la variable de sesión error
             unset($_SESSION['error']);
 
-            // Elimino la variable de sesión alumno
+            // Elimino la variable de sesión album");
             unset($_SESSION['name']);
             unset($_SESSION['email']);
             unset($_SESSION['password']);

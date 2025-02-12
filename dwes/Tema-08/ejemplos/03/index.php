@@ -1,17 +1,15 @@
 <?php
 
-    /*
-        Leer y guardar en un archivo de texto plano
+/**
+ * Leer y guardar contenido de un archivo de texto plano
+ * 
+ * -file_put_contents
+ * -file_get_contents
+ */
+$archivo = file_get_contents('archivo.txt');
 
-        - file_get_contents
-        - file_put_contents
-    */
+//Añado una nueva informacion al archivo
+$archivo .= 'Nueva información';
 
-    // Guardo el contenido del archivo en una variable
-    $archivo = file_get_contents("archivo.txt");
-
-    // Añado una nueva línea al archivo
-    $archivo .= "Nueva información añadida al archivo\n";
-
-    // Guardo el contenido en el archivo
-    file_put_contents("archivo.txt", $archivo);
+//Guardo el archivo
+file_put_contents('archivo.txt', $archivo);

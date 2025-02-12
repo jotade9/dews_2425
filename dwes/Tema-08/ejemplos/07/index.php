@@ -1,32 +1,23 @@
 <?php
+/**
+ * leer archivo como array
+ * 
+ * file — Lee todo un archivo a un array
+ */
+$archivo = fopen('archivo.txt', 'r');
 
-    /*
-        Leer archivo como array
+//validar si el archivo se abrio correctamente
+if (!$archivo) {
+    echo 'No se pudo abrir el archivo';
+    exit;
+}
+//recorro el archivo linea por linea
+while (!feof($archivo)) {
+    $linea[]=fgets($archivo);
+}
+fclose($archivo);
 
-        - fgets(): Lee una línea de un archivo
-    */
+echo"<pre>";
+print_r($archivo);
+echo"</pre>";
 
-    // Abrir archivo en modo lectura
-    $archivo = fopen('archivo.txt', 'r');
-
-    // Valido apertura del archivo
-    if (!$archivo) {
-        // Mensaje de error
-        die('No se pudo abrir el archivo');
-    }
-
-    $lineas = [];
-
-    // Recorro el archivo línea por línea
-    while (!feof($archivo)) {
-        // Leer línea
-        $linea = fgets($archivo);
-    }
-
-    // Cierro el archivo
-    fclose($archivo);
-    
-    // Imprimo el contenido
-    echo '<pre>';
-    print_r($lineas);
-    echo '</pre>';
