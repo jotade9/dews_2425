@@ -141,7 +141,7 @@ class Libro extends Controller
     */
     public function nuevo()
     {
-        // inicio o continuo la sesión
+        // inicio o continuo la sesión 
         session_start();
 
         // Validar token
@@ -398,7 +398,7 @@ class Libro extends Controller
         session_start();
 
         // Validar token
-        $this->checkTokenCsrf($_POST['csrf_token']);
+        $this->checkTokenCsrf($param[1]);
 
         // Comprobar si hay un usuario logueado
         $this->checkLogin();
@@ -496,7 +496,7 @@ class Libro extends Controller
         session_start();
 
         // Validar token
-        $this->checkTokenCsrf($_POST['csrf_token']);
+        $this->checkTokenCsrf($param[1]);
 
         // Comprobar si hay un usuario logueado
         $this->checkLogin();
@@ -801,7 +801,7 @@ class Libro extends Controller
         session_start();
 
         // Validar token
-        $this->checkTokenCsrf($_POST['csrf_token']);
+        $this->checkTokenCsrf($param[1]);
 
         // Comprobar si hay un usuario logueado
         $this->checkLogin();

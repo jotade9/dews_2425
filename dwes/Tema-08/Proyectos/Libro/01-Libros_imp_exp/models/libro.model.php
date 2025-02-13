@@ -159,8 +159,10 @@ class libroModel extends Model
             $stmt = $conexion->prepare($sql);
 
             foreach ($libros as $libro) {
+                // Reemplazar caracteres específicos en el título
+                $tituloLimpio = str_replace(["'", '"'], "", $libro[0]);
 
-                $stmt->bindParam(':titulo', $libro[0], PDO::PARAM_STR, 80);
+                $stmt->bindParam(':titulo', $tituloLimpio, PDO::PARAM_STR, 80);
                 $stmt->bindParam(':precio', $libro[1], PDO::PARAM_STR);
                 $stmt->bindParam(':stock', $libro[2], PDO::PARAM_INT);
                 $stmt->bindParam(':fecha_edicion', $libro[3], PDO::PARAM_STR, 10);
