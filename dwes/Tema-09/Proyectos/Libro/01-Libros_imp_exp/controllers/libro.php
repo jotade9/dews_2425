@@ -1173,7 +1173,7 @@ class Libro extends Controller
             }
             // Validar ISBN
             if (!$this->model->validateUniqueISBN($linea[4])) {
-                $_SESSION['mensaje_error'] = 'En la linea ' . count($libros) . ' el ISBN ' . $linea[4] . ' ya existe';  
+                $_SESSION['mensaje_error'] = 'En la linea ' . count($libros) . ' el ISBN ' . $linea[4] . ' ya existe';
                 header('location:' . URL . 'libro/importar/csv/' . $_POST['csrf_token']);
                 exit();
             }
@@ -1206,5 +1206,65 @@ class Libro extends Controller
         // redireciona al main de libro
         header('location:' . URL . 'libro');
         exit();
+    }
+
+    public function pdf($param = [])
+    {
+        // Incluimos la librería fpdf
+        require('fpdf186/fpdf_utf8.php');
+        // Incluimos la clase pdf_alumnos
+        require('class/pdf_libros.php');
+
+        // inicio o continuo la sesión
+        session_start();
+
+        // Validar token
+        $this->checkTokenCsrf($param[0]);
+
+        // Comprobar si hay un usuario logueado
+        $this->checkLogin();
+
+        // Comprobar si el usuario tiene permisos
+        $this->checkPermissions($GLOBALS['libro']['pdf']);
+
+        // creo objeto pdf_libros
+        $pdf = new Pdf_libros('P', 'mm', 'A4');
+
+        // Imprimir nombre de página actual
+        $pdf->AliasNbPages();
+
+        // Añadir página
+        $pdf->AddPage();
+
+        // Añadimo el titulo
+        $pdf->titulo();
+
+        // cabecera del listado
+        $pdf->cabecera();
+
+        // Cuerpo del listado
+        $pdf->SetFont('Courier', '', 8);
+
+        // Fondo pautado para las líneas pares
+        $pdf->SetFillColor(225, 245, 255);
+
+        $fondo = false;
+
+        // Obtener libros
+        $libros = $this->model->get();
+
+        // escribimo los datos de los libros
+        foreach ($libros as $libro) {
+            $pdf->Cell(10, 10, $libro->id, 'B, T', 0, 'C', $fondo);
+            $pdf->Cell(57, 10, $libro->titulo, 'B, T', 0, 'L', $fondo);
+            $pdf->Cell(45, 10, $libro->autor, 'B, T', 0, 'L', $fondo);
+            $pdf->Cell(52, 10, $libro->editorial, 'B, T', 0, 'L', $fondo);
+            $pdf->Cell(12, 10, $libro->stock, 'B, T', 0, 'C', $fondo);
+            $pdf->Cell(14, 10, number_format($libro->precio, 2, ',', '.'), 'B, T', 1, 'R', $fondo);
+            $fondo = !$fondo;
+        }
+
+        // Cerramos pdf
+        $pdf->Output('I', 'libros.pdf', true);
     }
 }
