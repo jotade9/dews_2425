@@ -5,13 +5,13 @@
     */
 
     // Host smtp brevo
-    define('SMTP_HOST', 'smtp-relayss.brevo.com');
+    define('SMTP_HOST', 'smtp-relay.brevo.com');
 
     // Puerto smtp brevo
     define('SMTP_PORT', 587);
 
     // Usuario smtp brevo
-    define('SMTP_USER', 'nerom24@gmail.com');
+    define('SMTP_USER', 'jjuandi8@gmail.com');
 
     // Contraseña smtp brevo
-    define('SMTP_PASS', '***********');
+    define('SMTP_PASS', '**********');

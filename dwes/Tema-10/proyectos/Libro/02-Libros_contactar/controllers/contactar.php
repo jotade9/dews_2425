@@ -145,7 +145,7 @@ class Contactar extends Controller
     function enviarEmail($name, $email, $subject, $message)
     {
         // Configuración de la cuenta de correo
-        require_once 'config/smtp_brevo.php';
+        require_once 'config/smtp_gmail.php';
 
         // Cargar la librería PHPMailer
         require_once 'extensions/PHPMailer/src/PHPMailer.php';

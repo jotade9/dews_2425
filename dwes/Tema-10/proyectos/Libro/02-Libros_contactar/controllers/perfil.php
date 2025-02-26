@@ -229,6 +229,8 @@ class Perfil extends Controller
         // Genero mensaje de éxito
         $_SESSION['mensaje'] = 'Perfil actualizado correctamente';
 
+        $this->enviarEmail($user->name, $user->email, "nombre");
+
         // Redirecciono a la vista principal de perfil
         header('location:' . URL . 'perfil');
     }
@@ -369,8 +371,11 @@ class Perfil extends Controller
         // Actualizo password del usuario
         $this->model->updatePass($new_password, $_SESSION['user_id']);
 
+
         // Genero mensaje de éxito
         $_SESSION['mensaje'] = 'Contraseña actualizada correctamente';
+
+        $this->enviarEmail($user->name, $user->email, "update");
 
         // Redirecciono a la vista principal de perfil
         header('location:' . URL . 'perfil');
@@ -415,6 +420,12 @@ class Perfil extends Controller
         // Elimino el usuario
         $this->model->delete($_SESSION['user_id']);
 
+        // Obtengo los detalles del usuario
+        $user = $this->model->getUserId($_SESSION['user_id']);
+
+
+        $this->enviarEmail($user->name, $user->email, "delete");
+
         // Cierro la sesión
         session_destroy();
 
@@ -429,5 +440,66 @@ class Perfil extends Controller
 
         // Redirecciono a la vista principal de perfil
         header('location:' . URL . 'auth/login');
+    }
+
+    /*
+        Envía un email
+    */
+    function enviarEmail($name, $email, $tipo)
+    {
+        // Configuración de la cuenta de correo
+        require_once 'config/smtp_gmail.php';
+
+        // Cargar la librería PHPMailer
+        require_once 'extensions/PHPMailer/src/PHPMailer.php';
+        require_once 'extensions/PHPMailer/src/SMTP.php';
+        require_once 'extensions/PHPMailer/src/Exception.php';
+
+        // Crear una nueva instancia de PHPMailer
+        $mail = new PHPMailer\PHPMailer\PHPMailer(true);
+
+        switch ($tipo) {
+            case 'delete':
+                $subject = 'Cuenta eliminada';
+                $message = "Hola $name, tu cuenta ha sido eliminada correctamente";
+                break;
+            case 'update':
+                $subject = 'Perfil actualizado';
+                $message = "Hola $name, tu contraseña ha sido actualizado correctamente";
+                break;
+            case 'nombre':
+                $subject = 'Nombre actualizado';
+                $message = "Hola $name, tu nombre ha sido actualizado correctamente";
+                break;
+        }
+        
+        try {
+
+            // Configuración juego caracteres
+            $mail->CharSet = "UTF-8";
+            $mail->Encoding = "quoted-printable";
+
+            // Servidor SMTP
+            $mail->isSMTP();
+            $mail->Host = SMTP_HOST;
+            $mail->SMTPAuth = true;
+            $mail->Username = SMTP_USER;
+            $mail->Password = 'incorrect_password';
+            $mail->Port = SMTP_PORT;
+            $mail->SMTPSecure = 'tls';
+
+            // Configurar el email
+            $mail->setFrom($email, $name);
+            $mail->addAddress($email);
+            $mail->Subject = $subject;
+            $mail->Body = $message;
+
+            // Configurar el email
+            $mail->send();
+
+        } catch (Exception $e) {
+            $_SESSION['mensaje_error'] = "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+
     }
 }
