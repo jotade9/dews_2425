@@ -1,4 +1,3 @@
-
 <?php
 
     /*
@@ -15,4 +14,6 @@
     define('SMTP_USER', 'jjuandi8@gmail.com');
 
     // Contraseña smtp brevo
-    define('SMTP_PASS', 'sotq xtni ipid lgrb');
+
+    define('SMTP_PASS', '************');
+
