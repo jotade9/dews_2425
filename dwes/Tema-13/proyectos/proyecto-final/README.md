@@ -44,3 +44,39 @@ Este proyecto está pensado para correr en **local con XAMPP**.
 Clona este repositorio dentro de la carpeta `htdocs` de tu instalación de XAMPP:  
 ```bash
 git clone https://github.com/jotade9/dews_2425.git
+```
+
+### 3️⃣ Configurar la Base de Datos
+
+El script para crear la base de datos, sus tablas y los datos iniciales se encuentra en la carpeta `bd/`.
+
+#### Método recomendado: Importar desde MySQL Workbench
+
+1.  Abre **MySQL Workbench** y conéctate a tu servidor local.
+2.  En el menú superior, ve a `Server` > `Data Import`.
+3.  Selecciona la opción `Import from Self-Contained File`.
+4.  Busca y selecciona el archivo `.sql` que se encuentra dentro de la carpeta `bd/` del proyecto.
+5.  En `Default Target Schema`, haz clic en `New...` para crear una nueva base de datos. Dale un nombre (por ejemplo, `proyecto_dwes`).
+6.  Haz clic en **Start Import** para ejecutar el script. Al finalizar, tendrás la base de datos lista.
+
+#### Método alternativo: Copiar y ejecutar el script
+
+1.  Abre el archivo `.sql` de la carpeta `bd/` con un editor como **Visual Studio Code**.
+2.  Selecciona todo el contenido (`Ctrl+A` o `Cmd+A`) y cópialo (`Ctrl+C` o `Cmd+C`).
+3.  En **MySQL Workbench**, crea una nueva base de datos desde el panel izquierdo (clic derecho > `Create Schema...`).
+4.  Abre una nueva pestaña de script (`SQL Query Tab`) para esa base de datos.
+5.  Pega el contenido del archivo y ejecuta el script completo (haz clic en el icono del rayo ⚡).
+
+---
+
+### 4️⃣ ¡Ejecutar el proyecto!
+
+Una vez clonado el repositorio y configurada la base de datos, abre tu navegador web y accede a:
+
+http://localhost/dews_2425/
+
+*(Reemplaza `dews_2425` por el nombre de la carpeta del proyecto si lo has cambiado).*
+
+
+
+
