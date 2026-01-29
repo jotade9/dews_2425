@@ -33,6 +33,33 @@ Este proyecto está pensado para correr en **local con XAMPP**.
 - ✅ Diseño responsive básico  
 
 ---
+## 👥 Niveles de Acceso y Roles
+
+El sistema utiliza **Control de Acceso Basado en Roles (RBAC)** para proteger las rutas y acciones. Los permisos están distribuidos de la siguiente forma:
+
+### 👑 Rol: Administrador
+Es el perfil con control total sobre la aplicación.
+- **Capacidades:** CRUD completo en todas las tablas, gestión de usuarios y asignación de privilegios.
+- **Captura de Gestión:**
+  ![Index de Administración](screenshots/admin/indexAdmin.png)
+  *(Aquí puedes poner la captura donde se ven Inmaculada y Juan Diego con sus botones de acción)*
+
+### 📝 Rol: Editor
+Perfil intermedio para el mantenimiento de datos.
+- **Capacidades:** Puede añadir nuevos libros, autores o editoriales y modificar los existentes.
+- **Restricción:** No tiene acceso al menú de "Usuarios" ni permisos para eliminar registros críticos.
+- **Vista Principal:**
+  ![Index de Gestión](screenshots/editor/indexEditor.png)
+  *(Usa la captura del listado de libros que me pasaste al principio)*
+
+### 👤 Rol: Registrado
+Perfil de consulta para usuarios finales.
+- **Capacidades:** Visualización del catálogo de libros y fichas de autores.
+- **Restricción:** Interfaz simplificada sin botones de edición, creación o borrado.
+- **Vista de Consulta:**
+  ![Vista de Usuario Registrado](screenshots/registrado/index.png)
+
+---
 
 ## 📦 Instalación y ejecución en local  
 
