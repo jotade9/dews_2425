@@ -33,30 +33,58 @@ Este proyecto está pensado para correr en **local con XAMPP**.
 - ✅ Diseño responsive básico  
 
 ---
+## 📂 Tour por la Aplicación
+
+### 🌍 Vistas Públicas (Sin Registro)
+Secciones accesibles para cualquier visitante.
+
+* **Página de Inicio (Index):** Presentación principal de la plataforma.
+    ![Inicio](screenshots/registrado/index.png)
+* **Contacto:** Formulario funcional para consultas externas.
+    ![Inicio](screenshots/registrado/contactar.png)
+* **Acceso y Registro:** Formularios de Login y alta de nuevos usuarios.
+   ![Register](screenshots/registrado/register.png)
+    ![Login](screenshots/registrado/login.png)   
+* **Validación y Errores:** Sistema de alertas para notificar errores en formularios o accesos denegados.
+    ![Errores](screenshots/registrado/registerError.png)
+    ![Errores](screenshots/registrado/loginError.png)
+
+### 👤 Experiencia del Usuario Registrado
+Funcionalidades tras el inicio de sesión.
+
+* **Catálogo de Libros y Autores:** Acceso a la base de datos de la biblioteca.
+    ![Lista Libros](screenshots/registrado/autores.png)
+* **Ordenación Dinámica:** Capacidad de organizar listas (ej. por precio o título).
+    ![Ordenación](screenshots/registrado/orderPrice.png)
+* **Gestión de Perfil:** Cada usuario puede actualizar su propia información personal.
+    ![Editar Perfil](screenshots/registrado/editarPerfil.png)
+
+---
+
 ## 👥 Niveles de Acceso y Roles
 
-El sistema utiliza **Control de Acceso Basado en Roles (RBAC)** para proteger las rutas y acciones. Los permisos están distribuidos de la siguiente forma:
+El sistema utiliza **Control de Acceso Basado en Roles (RBAC)** para proteger las rutas y acciones:
 
 ### 👑 Rol: Administrador
-Es el perfil con control total sobre la aplicación.
-- **Capacidades:** CRUD completo en todas las tablas, gestión de usuarios y asignación de privilegios.
-- **Captura de Gestión:**
-  ![Index de Administración](screenshots/admin/indexAdmin.png)
-  *(Aquí puedes poner la captura donde se ven Inmaculada y Juan Diego con sus botones de acción)*
+Es el perfil con control total sobre la plataforma. Sus funciones principales incluyen:
+
+* **Gestión de Usuarios:**
+    * Crear nuevos usuarios: ![Crear Usuario](screenshots/admin/createUser.png)
+    * Borrado de cuentas: ![Usuario Eliminado](screenshots/admin/userDeleted.png)
+* **Mantenimiento del Catálogo:** CRUD completo de libros y autores.
+    * ![Crear Libro](screenshots/admin/createBook.png) ![Editar Libro](screenshots/admin/editarLibro.png)
+    * ![Editar Autor](screenshots/admin/editarAutor.png)
+* **Herramientas de Datos (Import/Export):**
+    * ![Exportar CSV](screenshots/admin/exportarLibros.png) ![Generar PDF](screenshots/admin/GenerarPdf.png)
+    * ![Importar Libro](screenshots/admin/importarLibro.png)
 
 ### 📝 Rol: Editor
-Perfil intermedio para el mantenimiento de datos.
-- **Capacidades:** Puede añadir nuevos libros, autores o editoriales y modificar los existentes.
-- **Restricción:** No tiene acceso al menú de "Usuarios" ni permisos para eliminar registros críticos.
-- **Vista Principal:**
-  ![Index de Gestión](screenshots/editor/indexEditor.png)
+- **Capacidades:** Gestión de contenido (Libros, Autores, Editoriales). No puede eliminar ni gestionar usuarios.
+- **Captura:** ![Index Editor](screenshots/editor/indexEditor.png)
 
 ### 👤 Rol: Registrado
-Perfil de consulta para usuarios finales.
-- **Capacidades:** Visualización del catálogo de libros y fichas de autores.
-- **Restricción:** Interfaz simplificada sin botones de edición, creación o borrado.
-- **Vista de Consulta:**
-  ![Vista de Usuario Registrado](screenshots/registrado/home_role1.png)
+- **Capacidades:** Visualización de catálogo. Interfaz sin botones de edición o borrado.
+- **Captura:** ![Home Registrado](screenshots/registrado/home_role1.png)
 
 ---
 
