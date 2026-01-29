@@ -50,14 +50,13 @@ Perfil intermedio para el mantenimiento de datos.
 - **Restricción:** No tiene acceso al menú de "Usuarios" ni permisos para eliminar registros críticos.
 - **Vista Principal:**
   ![Index de Gestión](screenshots/editor/indexEditor.png)
-  *(Usa la captura del listado de libros que me pasaste al principio)*
 
 ### 👤 Rol: Registrado
 Perfil de consulta para usuarios finales.
 - **Capacidades:** Visualización del catálogo de libros y fichas de autores.
 - **Restricción:** Interfaz simplificada sin botones de edición, creación o borrado.
 - **Vista de Consulta:**
-  ![Vista de Usuario Registrado](screenshots/registrado/index.png)
+  ![Vista de Usuario Registrado](screenshots/registrado/home_role1.png)
 
 ---
 
