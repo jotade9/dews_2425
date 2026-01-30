@@ -57,7 +57,7 @@ Funcionalidades tras el inicio de sesión.
 * **Ordenación Dinámica:** Capacidad de organizar listas (ej. por precio o título).
     ![Ordenación](screenshots/registrado/orderPrice.png)
 * **Gestión de Perfil:** Cada usuario puede actualizar su propia información personal.
-    ![Editar Perfil](screenshots/registrado/editarPerfil.png)
+    ![Editar Perfil](screenshots/registrado/EditarPerfil.png)
 
 ---
 
